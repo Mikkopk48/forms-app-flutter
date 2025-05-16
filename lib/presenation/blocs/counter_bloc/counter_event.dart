@@ -1,10 +1,21 @@
-part of 'counter_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-sealed class CounterEvent {
+abstract class CounterEvent extends Equatable {
   const CounterEvent();
 }
 
-class CounterIncresed extends CounterEvent {
+class IncrementEvent extends CounterEvent {
   final int value;
-  const CounterIncresed(this.value);
+  const IncrementEvent(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}
+
+class DecrementEvent extends CounterEvent {
+  final int value;
+  const DecrementEvent(this.value);
+
+  @override
+  List<Object?> get props => [value];
 }
