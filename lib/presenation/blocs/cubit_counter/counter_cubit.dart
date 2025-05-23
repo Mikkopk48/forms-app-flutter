@@ -5,12 +5,12 @@ part 'counter_state.dart';
 
 class CounterCubit extends Cubit<CounterState> {
   CounterCubit() : super(const CounterState(counter: 5));
-  void increseBy(int value) {
+  void increaseBy(int value) {
     // state.counter = 10;
     emit(
       state.copyWith(
         counter: state.counter + value,
-        transactionCount: state.transactionCount + value, //!= state.counter,
+        transactionCount: state.transactionCount + 1, //!= state.counter,
       ),
     );
   }
@@ -19,7 +19,7 @@ class CounterCubit extends Cubit<CounterState> {
     emit(
       state.copyWith(
         counter: 0,
-        // transactionCount: state.transactionCount + 1, //!= state.counter,
+        // transactionCount: 0, // Opcional según el comportamiento deseado
       ),
     );
   }
