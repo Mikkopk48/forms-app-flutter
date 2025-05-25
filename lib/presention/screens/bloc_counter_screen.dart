@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:forms_app/presenation/blocs/couter_bloc/counter_bloc.dart';
+import 'package:forms_app/presention/blocs/couter_bloc/counter_bloc.dart';
 
 class BlocCounterScreen extends StatelessWidget {
   const BlocCounterScreen({super.key});
@@ -18,7 +18,8 @@ class _CounterCounterView extends StatelessWidget {
   const _CounterCounterView();
 
   void increaseCounterBy(BuildContext context, [int value = 1]) {
-    context.read<CounterBloc>().add(CounterIncreased(value));
+    // context.read<CounterBloc>().add(CounterIncreased(value));
+    context.read<CounterBloc>().incresedBy(value);
   }
 
   void resetCounter(BuildContext context) {
@@ -31,7 +32,8 @@ class _CounterCounterView extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () => context.read<CounterBloc>().add(CounterReset()),
+            onPressed: () => context.read<CounterBloc>().resetCounter(),
+            // context.read<CounterBloc>().add(CounterReset()),
             icon: const Icon(Icons.change_circle_outlined),
           ),
         ],
