@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:forms_app/presention/screens/bloc_counter_screen.dart';
 import 'package:forms_app/presention/screens/cubit_counter_screen.dart';
 import 'package:forms_app/presention/screens/home_screen.dart';
+import 'package:forms_app/presention/screens/register_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(
@@ -15,8 +15,9 @@ final appRouter = GoRouter(
       path: '/counter-bloc',
       builder: (context, state) => const BlocCounterScreen(),
     ),
+    GoRoute(
+      path: '/new-user',
+      builder: (context, state) => const RegisterScreen(),
+    ),
   ],
-  errorBuilder:
-      (context, state) =>
-          Scaffold(body: Center(child: Text('Routing error: ${state.error}'))),
 );
