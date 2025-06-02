@@ -17,6 +17,26 @@ class _RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField();
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const FlutterLogo(size: 100),
+            TextFormField(),
+            TextFormField(),
+            TextFormField(),
+            TextFormField(),
+            const SizedBox(height: 20),
+            FilledButton.tonalIcon(
+              onPressed: () {},
+              label: const Text('Guardar'),
+              icon: const Icon(Icons.save),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
   }
 }
